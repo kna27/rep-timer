@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class Main : MonoBehaviour
 {
-    //TODO: MAX, CAN HOLD BUTTONS
-    #region
+    //TODO: ADD MAX NUMBER OF REPETITIONS OPTION, AND MAKE IT POSSIBLE TO HOLD BUTTONS
+
+    #region variables
     public Text Textseconds;
     public Camera mainCam;
     public Text Textreps;
@@ -38,7 +39,8 @@ public class Main : MonoBehaviour
     public Color camBackgroundLight;
     public Color textDark;
     public Color textLight;
-    #endregion
+    #endregion 
+
     void Start()
     {
         resetPanel.SetActive(false);
@@ -259,7 +261,7 @@ public class Main : MonoBehaviour
 
     public void FeedbackForm()
     {
-        Application.OpenURL("mailto:kna27studios@gmail.com?subject=Feedback%20Form");
+        Application.OpenURL("mailto:krisharora27@gmail.com?subject=Feedback%20Form");
     }
     IEnumerator countdown()
     {
