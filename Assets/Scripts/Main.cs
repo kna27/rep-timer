@@ -44,9 +44,9 @@ public class Main : MonoBehaviour
     void Start()
     {
         resetPanel.SetActive(false);
-        lightMode = PlayerPrefs.GetInt("lightMode") == 1 ? true : false;
-        showMS = PlayerPrefs.GetInt("showMS") == 1 ? true : false;
-        countDown = PlayerPrefs.GetInt("countDown") == 1 ? true : false;
+        lightMode = PlayerPrefs.GetInt("lightMode") == 1;
+        showMS = PlayerPrefs.GetInt("showMS") == 1;
+        countDown = PlayerPrefs.GetInt("countDown") == 1;
 
         UpdateColorMode();
         msText.text = showMS == true ? "Hide milliseconds" : "Show milliseconds";
