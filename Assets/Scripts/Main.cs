@@ -7,7 +7,7 @@ public class Main : MonoBehaviour
 {
     //TODO: ADD MAX NUMBER OF REPETITIONS OPTION, AND MAKE IT POSSIBLE TO HOLD BUTTONS
 
-    #region variables
+    #region Variables
     public Text Textseconds;
     public Camera mainCam;
     public Text Textreps;
@@ -25,7 +25,7 @@ public class Main : MonoBehaviour
     public int maxTime = 20;
     public float restartTime = 3;
     public float restartCountdown;
-    public bool i = false;
+    public bool settingsShown = false;
     public bool lightMode = false;
     public bool showMS = false;
     public bool countDown = false;
@@ -59,7 +59,7 @@ public class Main : MonoBehaviour
 
     void Update()
     {
-        if (!i)
+        if (!settingsShown)
         {
             if (!pause)
             {
@@ -104,8 +104,9 @@ public class Main : MonoBehaviour
 
     public void Reset()
     {
-        StartCoroutine(countdown());
+        StartCoroutine(Countdown());
     }
+
     public void UpdatePP()
     {
         if (int.TryParse(mins.text, out minInt) && int.TryParse(secs.text, out secInt))
@@ -133,7 +134,8 @@ public class Main : MonoBehaviour
         progress.maxValue = maxTime; 
         Reset();
     }
-    #region
+
+    #region Settings Menu
     public void MinUp()
     {
         if(int.TryParse(mins.text, out minInt))
@@ -187,9 +189,10 @@ public class Main : MonoBehaviour
     }
 
     #endregion
+
     public void SettingsMenu()
     {
-        if (i)
+        if (settingsShown)
         {
             anim.Play("settingsOut");
         }
@@ -197,7 +200,7 @@ public class Main : MonoBehaviour
         {
             anim.Play("settingsIn");
         }
-        i = !i;
+        settingsShown = !settingsShown;
     }
 
     public void ColorMode()
@@ -263,9 +266,11 @@ public class Main : MonoBehaviour
     {
         Application.OpenURL("mailto:krisharora27@gmail.com?subject=Feedback%20Form");
     }
-    IEnumerator countdown()
+
+
+    IEnumerator Countdown()
     {
-        if (!i)
+        if (!settingsShown)
         {
             pauseButton.interactable = false;
         }
@@ -279,7 +284,7 @@ public class Main : MonoBehaviour
             seconds = maxTime;
         }
         reps = 1;
-        if (!i)
+        if (!settingsShown)
         {
             resetPanel.SetActive(true);
             resetTime.text = "3...";
