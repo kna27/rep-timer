@@ -1,2 +1,2 @@
 # repTimer
- A timer with repetitions for presentations and workouts
+ A timer with repetitions made in Unity
